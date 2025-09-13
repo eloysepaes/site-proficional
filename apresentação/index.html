@@ -1,19 +1,269 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <title>Apresentação do grupo</title>
   <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grupo Aurora — Apresentação</title>
+  <meta name="description" content="Site de apresentação do Grupo Aurora — cinco membros fictícios, portfólios e contatos.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --glass: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --max-width: 1100px;
+      --gap: 1.25rem;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#071026 0%, #081226 40%, #05121a 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      line-height:1.45;
+    }
+
+    .site{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.7);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    header{
+      padding:2rem;
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      justify-content:space-between;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-bottom:1px solid rgba(255,255,255,0.02);
+    }
+
+    .brand{
+      display:flex;gap:1rem;align-items:center
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#3dd3c4);display:flex;align-items:center;justify-content:center;font-weight:800;color:#022;letter-spacing:0.6px;font-size:18px;
+      box-shadow: 0 6px 18px rgba(28,213,169,0.06), inset 0 -6px 18px rgba(255,255,255,0.02);
+    }
+    h1{font-size:1.125rem;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:0.95rem}
+
+    nav{display:flex;gap:.75rem;align-items:center}
+    .btn{
+      padding:.6rem .9rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:600;font-size:0.9rem;color:var(--accent);text-decoration:none
+    }
+
+    main{padding:2rem}
+
+    .intro{
+      display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-bottom:1.25rem
+    }
+    .intro-text{flex:1;min-width:240px}
+    .intro h2{margin:0 0 .25rem 0;font-size:1.35rem}
+    .intro p{margin:0;color:var(--muted)}
+
+    .team-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:var(--gap);
+    }
+
+    @media (max-width:900px){
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      header{flex-direction:column;align-items:flex-start}
+      .team-grid{grid-template-columns:1fr}
+    }
+
+    .member{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:var(--radius);
+      padding:1rem;
+      display:flex;gap:1rem;align-items:center;
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
+    }
+    .member:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(2,6,23,0.6)}
+
+    .avatar{
+      width:84px;height:84px;border-radius:12px;flex:0 0 84px;overflow:hidden;background:var(--glass);display:grid;place-items:center;font-weight:700;color:var(--muted)
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .meta{flex:1}
+    .meta h3{margin:0;font-size:1.05rem}
+    .meta p{margin:.25rem 0 0 0;color:var(--muted);font-size:.92rem}
+
+    .tags{margin-top:.6rem;display:flex;gap:.4rem;flex-wrap:wrap}
+    .tag{background:rgba(255,255,255,0.03);padding:.35rem .5rem;border-radius:8px;font-size:.78rem;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    .actions{display:flex;flex-direction:column;gap:.5rem}
+    .actions a{display:inline-block;text-decoration:none;padding:.5rem .75rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:600;font-size:.85rem}
+    .cta{background:linear-gradient(90deg,var(--accent),#3dd3c4);color:#022;border:none}
+
+    footer{padding:1.25rem 2rem;background:transparent;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+    footer small{color:var(--muted)}
+
+    /* Small accessible focus styles */
+    a:focus,button:focus{outline:3px solid rgba(110,231,183,0.14);outline-offset:3px}
+  </style>
 </head>
 <body>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<div class="container">
-  <h1>Eloyse de Oliveira paes</h1>
-  <h1>Lavinea Solak</h1>
-  <h1>Livia Maria Bueno</h1>
-  <h1>Joao Gabriel Mittelstedt</h1>
-  <h1>Maria Eduarda de Lara Feliciano Soares</h1>
-</div>
+  <div class="site" role="document">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>GA</div>
+        <div>
+          <h1>Grupo Aurora</h1>
+          <p class="lead">Criatividade • Tecnologia • Impacto — conheça os nossos membros</p>
+        </div>
+      </div>
+
+      <nav aria-label="menu principal">
+        <a href="#equipe" class="btn">Nossa equipe</a>
+        <a href="#contato" class="btn">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <div class="intro-text">
+          <h2>Equipe multidisciplinar — 5 especialistas</h2>
+          <p>O Grupo Aurora combina design, produto e tecnologia para entregar soluções digitais elegantes e eficientes. Abaixo você encontra as apresentações curtas dos nossos cinco membros fictícios.</p>
+        </div>
+        <div style="min-width:220px;text-align:right">
+          <p style="margin:0;color:var(--muted)"><strong>Local:</strong> São Paulo • Remote-friendly</p>
+          <p style="margin:.35rem 0 0 0;color:var(--muted)"><strong>Fundação:</strong> 2024</p>
+        </div>
+      </section>
+
+      <section id="equipe" class="team-grid" aria-label="equipe">
+
+        <!-- Membro 1 -->
+        <article class="member">
+          <div class="avatar" aria-hidden>
+            <img src="https://via.placeholder.com/300x300?text=Alice" alt="Foto de Alice Monteiro">
+          </div>
+          <div class="meta">
+            <h3>Alice Monteiro</h3>
+            <p>Diretora de Design — especialista em branding e experiência do usuário com 8 anos de mercado.</p>
+            <div class="tags">
+              <span class="tag">Design System</span>
+              <span class="tag">UX Research</span>
+            </div>
+          </div>
+          <div class="actions" aria-hidden>
+            <a href="#" title="Ver portfólio de Alice">Portfólio</a>
+            <a href="#" class="cta">Enviar mensagem</a>
+          </div>
+        </article>
+
+        <!-- Membro 2 -->
+        <article class="member">
+          <div class="avatar">
+            <img src="https://via.placeholder.com/300x300?text=Bruno" alt="Foto de Bruno Silva">
+          </div>
+          <div class="meta">
+            <h3>Bruno Silva</h3>
+            <p>Engenheiro de Software — backend e infra, apaixonado por escalabilidade e segurança.</p>
+            <div class="tags">
+              <span class="tag">Arquitetura</span>
+              <span class="tag">DevOps</span>
+            </div>
+          </div>
+          <div class="actions" aria-hidden>
+            <a href="#">GitHub</a>
+            <a href="#" class="cta">Conectar</a>
+          </div>
+        </article>
+
+        <!-- Membro 3 -->
+        <article class="member">
+          <div class="avatar">
+            <img src="https://via.placeholder.com/300x300?text=Catarina" alt="Foto de Catarina Lopes">
+          </div>
+          <div class="meta">
+            <h3>Catarina Lopes</h3>
+            <p>Product Manager — planejamento estratégico e roadmap orientado a métricas.</p>
+            <div class="tags">
+              <span class="tag">Roadmaps</span>
+              <span class="tag">OKRs</span>
+            </div>
+          </div>
+          <div class="actions" aria-hidden>
+            <a href="#">Case</a>
+            <a href="#" class="cta">Falar com Catarina</a>
+          </div>
+        </article>
+
+        <!-- Membro 4 -->
+        <article class="member">
+          <div class="avatar">
+            <img src="https://via.placeholder.com/300x300?text=Diego" alt="Foto de Diego Ramos">
+          </div>
+          <div class="meta">
+            <h3>Diego Ramos</h3>
+            <p>Especialista em Marketing — estratégia digital, performance e conteúdo criativo.</p>
+            <div class="tags">
+              <span class="tag">Performance</span>
+              <span class="tag">Branding</span>
+            </div>
+          </div>
+          <div class="actions" aria-hidden>
+            <a href="#">LinkedIn</a>
+            <a href="#" class="cta">Brief</a>
+          </div>
+        </article>
+
+        <!-- Membro 5 -->
+        <article class="member">
+          <div class="avatar">
+            <img src="https://via.placeholder.com/300x300?text=Eva" alt="Foto de Eva Carvalho">
+          </div>
+          <div class="meta">
+            <h3>Eva Carvalho</h3>
+            <p>Analista de Dados — transforma dados em insights acionáveis e relatórios claros.</p>
+            <div class="tags">
+              <span class="tag">Viz. de Dados</span>
+              <span class="tag">SQL & Python</span>
+            </div>
+          </div>
+          <div class="actions" aria-hidden>
+            <a href="#">Relatórios</a>
+            <a href="#" class="cta">Solicitar análise</a>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer id="contato">
+      <small>© Grupo Aurora — Todos os direitos reservados</small>
+      <div style="display:flex;gap:1rem;align-items:center">
+        <small style="color:var(--muted)">contato@grupoaurora.fict</small>
+        <a href="#" class="btn">Solicitar proposta</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
