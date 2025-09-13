@@ -2,120 +2,97 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Equipe — Apresentação</title>
-  <meta name="description" content="Apresentação simples da equipe com 5 membros">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nosso Grupo</title>
   <style>
-    :root{--bg:#ffffff;--text:#0b2340;--muted:#53607a;--accent:#4aa3ff}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text);}
-    .container{max-width:900px;margin:36px auto;padding:20px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6fd1ff);display:grid;place-items:center;color:white;font-weight:700}
-    h1{font-size:1.25rem;margin:0}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-    @media (max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:480px){.grid{grid-template-columns:1fr}}
-
-    .card{background:#fbfbff;border:1px solid #eef3fb;border-radius:10px;padding:12px;display:flex;gap:12px;align-items:center}
-    .avatar{width:68px;height:68px;border-radius:8px;overflow:hidden;background:#e8f5ff;display:grid;place-items:center;font-weight:700;color:var(--text)}
-    .meta h3{margin:0;font-size:1rem}
-    .meta p{margin:6px 0 0;color:var(--muted);font-size:0.9rem}
-    .actions{margin-left:auto;display:flex;flex-direction:column;gap:8px}
-    .btn{padding:8px 10px;border-radius:8px;border:1px solid rgba(11,35,64,0.06);background:transparent;text-decoration:none;color:var(--accent);font-weight:600;font-size:0.9rem}
-    .btn.primary{background:var(--accent);color:white;border:none}
-
-    footer{margin-top:24px;padding-top:12px;border-top:1px solid #f0f3f8;color:var(--muted);font-size:0.9rem;display:flex;justify-content:space-between;align-items:center}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafc;
+      color: #333;
+    }
+    header {
+      background: #34495e;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .member {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .member h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    footer {
+      background: #34495e;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">EA</div>
-        <div>
-          <h1>Equipe Aurora — Apresentação</h1>
-          <p class="lead">Conheça os membros da nossa equipe.</p>
-        </div>
+  <header>
+    <h1>Apresentação do Grupo</h1>
+    <p>Eloyse de Oliveira Paes — Dona da Equipe</p>
+  </header>
+  
+  <main>
+    <section class="intro">
+      <p>Nosso grupo é formado por cinco integrantes dedicados, liderados por Eloyse, que coordenam juntos projetos acadêmicos e criativos.</p>
+    </section>
+
+    <section class="team">
+      <div class="member">
+        <h3>Eloyse de Oliveira Paes</h3>
+        <p>Dona da Equipe</p>
       </div>
-      <div>
-        <a href="#contato" class="btn">Contato</a>
+      <div class="member">
+        <h3>Lavinea Solak</h3>
+        <p>Integrante do grupo</p>
       </div>
-    </header>
+      <div class="member">
+        <h3>Livia Maria Bueno</h3>
+        <p>Integrante do grupo</p>
+      </div>
+      <div class="member">
+        <h3>João Gabriel Mittelstedt</h3>
+        <p>Integrante do grupo</p>
+      </div>
+      <div class="member">
+        <h3>Maria Eduarda de Lara Feliciano Soares</h3>
+        <p>Integrante do grupo</p>
+      </div>
+    </section>
+  </main>
 
-    <main>
-      <section class="grid" id="equipe">
-
-        <article class="card">
-          <div class="avatar"><img src="https://via.placeholder.com/150?text=Eloyse" alt="Eloyse de Oliveira Paes" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="meta">
-            <h3>Eloyse de Oliveira Paes</h3>
-            <p>Coordenadora de projetos — comunicação, organização e criatividade.</p>
-          </div>
-          <div class="actions">
-            <a href="#" class="btn">Ver</a>
-            <a href="#" class="btn primary">Mensagem</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar"><img src="https://via.placeholder.com/150?text=Lavinea" alt="Lavinea Solak" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="meta">
-            <h3>Lavinea Solak</h3>
-            <p>Designer gráfico — identidade visual e ilustração.</p>
-          </div>
-          <div class="actions">
-            <a href="#" class="btn">Ver</a>
-            <a href="#" class="btn primary">Mensagem</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar"><img src="https://via.placeholder.com/150?text=Livia" alt="Livia Maria Bueno" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="meta">
-            <h3>Livia Maria Bueno</h3>
-            <p>Analista deConteúdo — mídias, redação e estratégia editorial.</p>
-          </div>
-          <div class="actions">
-            <a href="#" class="btn">Ver</a>
-            <a href="#" class="btn primary">Mensagem</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar"><img src="https://via.placeholder.com/150?text=Joao" alt="Joao Gabriel Mittelstedt" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="meta">
-            <h3>Joao Gabriel Mittelstedt</h3>
-            <p>Desenvolvedor front-end — sites e interfaces responsivas.</p>
-          </div>
-          <div class="actions">
-            <a href="#" class="btn">Ver</a>
-            <a href="#" class="btn primary">Mensagem</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="avatar"><img src="https://via.placeholder.com/150?text=Maria" alt="Maria Eduarda de Lara Feliciano Soares" style="width:100%;height:100%;object-fit:cover"></div>
-          <div class="meta">
-            <h3>Maria Eduarda de Lara Feliciano Soares</h3>
-            <p>Analista de dados — relatórios e visualização de métricas.</p>
-          </div>
-          <div class="actions">
-            <a href="#" class="btn">Ver</a>
-            <a href="#" class="btn primary">Mensagem</a>
-          </div>
-        </article>
-
-      </section>
-    </main>
-
-    <footer id="contato">
-      <div>© 2025 Equipe Aurora</div>
-      <div>contato@equipeaurora.fict</div>
-    </footer>
-  </div>
+  <footer>
+    <p>© 2025 Nosso Grupo — Todos os direitos reservados</p>
+  </footer>
 </body>
 </html>
